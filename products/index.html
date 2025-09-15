@@ -44,10 +44,6 @@
 
 
 
-    
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
-
 
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
@@ -310,14 +306,14 @@
 <main class="post-container content">
 
     
-    <div class="row">
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down" style="order: 0;">
+    <div class="row" id="post-detail-row" style="display: flex; flex-wrap: wrap;">
+    <div id="toc-aside" class="col l3 hide-on-med-and-down" style="order: 0; display: none;">
         <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
             <div id="toc-content"></div>
         </div>
     </div>
-    <div id="main-content" class="col s12 m12 l9" style="order: 1;">
+    <div id="main-content" class="col s12 m12" style="order: 1; margin: 0 auto; float: none;">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -453,40 +449,7 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -633,7 +596,7 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
+            collapseDepth: Number('6'),
             headingSelector: 'h2, h3, h4'
         });
 
@@ -650,7 +613,6 @@
             }
         });
 
-        
         /* 修复文章卡片 div 的宽度. */
         let fixPostCardWidth = function (srcId, targetId) {
             let srcDiv = $('#' + srcId);
@@ -675,17 +637,21 @@
         const expandedClass = 'expanded';
         let $tocAside = $('#toc-aside');
         let $mainContent = $('#main-content');
+        // 页面初始时隐藏 TOC，点击按钮才显示
         $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
+            if ($tocAside.is(':visible')) {
+                $tocAside.hide();
                 $mainContent.removeClass('l9');
+                // 居中主内容
+                $mainContent.css({ 'margin': '0 auto', 'float': 'none' });
             } else {
-                $tocAside.addClass(expandedClass).show();
+                $tocAside.show();
                 $mainContent.addClass('l9');
+                // 恢复主内容左对齐
+                $mainContent.css({ 'margin': '', 'float': '' });
             }
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
-        
     });
 </script>
 
