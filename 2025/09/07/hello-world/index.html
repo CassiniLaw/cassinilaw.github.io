@@ -52,6 +52,10 @@
 
 
 
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
 
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
@@ -62,20 +66,19 @@
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
-    <div id="navContainer" class="nav-wrapper container">
-        <div class="brand-logo">
-            <a href="/" class="waves-effect waves-light">
-                
-                <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                
-                <span class="logo-span">问天阁</span>
-            </a>
-        </div>
-        <div style="flex: 1; display: flex; justify-content: center;">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">问天阁</span>
+                </a>
+            </div>
             
 
 <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="center nav-menu" style="justify-content: flex-start;">
+<ul class="right nav-menu">
   
   <li class="hide-on-med-and-down nav-item">
     
@@ -92,7 +95,7 @@
     
     <a href="/products" class="waves-effect waves-light">
       
-      <i class="fas fa-cubes" style="zoom: 0.6;"></i>
+      <i class="fas fa-box" style="zoom: 0.6;"></i>
       
       <span>产品与服务</span>
     </a>
@@ -176,7 +179,7 @@
 	  
 		<a href="/products" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-cubes"></i>
+			    <i class="fa-fw fas fa-box"></i>
 			
 			产品与服务
 		</a>
@@ -219,7 +222,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/CassiniLaw/cassinilaw.github.io" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/CassiniLaw/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -228,7 +231,6 @@
 </div>
 
 
-        </div>
         </div>
 
         
@@ -277,7 +279,7 @@
     }
 </style>
 
-<a href="https://github.com/CassiniLaw/cassinilaw.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/CassiniLaw/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -314,14 +316,8 @@
 <main class="post-container content">
 
     
-    <div class="row" id="post-detail-row" style="display: flex; flex-wrap: wrap;">
-    <div id="toc-aside" class="col l3 hide-on-med-and-down" style="order: 0; display: none;">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-    <div id="main-content" class="col s12 m12" style="order: 1; margin: 0 auto; float: none;">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -461,7 +457,40 @@
 
                 </div>
             </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
         </div>
     </div>
 
@@ -588,6 +617,12 @@
 
 
     </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
 </div>
 
 <!-- TOC 悬浮按钮. -->
@@ -606,7 +641,7 @@
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('6'),
+            collapseDepth: Number('0'),
             headingSelector: 'h2, h3, h4'
         });
 
@@ -623,6 +658,7 @@
             }
         });
 
+        
         /* 修复文章卡片 div 的宽度. */
         let fixPostCardWidth = function (srcId, targetId) {
             let srcDiv = $('#' + srcId);
@@ -647,21 +683,17 @@
         const expandedClass = 'expanded';
         let $tocAside = $('#toc-aside');
         let $mainContent = $('#main-content');
-        // 页面初始时隐藏 TOC，点击按钮才显示
         $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.is(':visible')) {
-                $tocAside.hide();
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
                 $mainContent.removeClass('l9');
-                // 居中主内容
-                $mainContent.css({ 'margin': '0 auto', 'float': 'none' });
             } else {
-                $tocAside.show();
+                $tocAside.addClass(expandedClass).show();
                 $mainContent.addClass('l9');
-                // 恢复主内容左对齐
-                $mainContent.css({ 'margin': '', 'float': '' });
             }
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
+        
     });
 </script>
 
@@ -737,8 +769,8 @@
                 <span id="year">2019-2025</span>
             
             <a href="/about" target="_blank">Cassini Law</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            |&nbsp;Powered by&nbsp;<a href="https://cassinilaw.github.io/" target="_blank">Censinli</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/CassiniLaw/hexo-theme-matery" target="_blank">CassiniLaw</a>
             
             <br>
             
@@ -764,11 +796,8 @@
             
             <br>
             
-            <!-- <span id="legal-link">
-                | <a href="/legal" target="_blank">法律声明</a>
-            </span> -->
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+                <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/CassiniLaw" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -800,6 +829,18 @@
     </a>
 
 </div>
+        </div>
+        <!-- 友情链接，仅在页脚显示 -->
+        <div class="container row center-align" style="margin-bottom:0;">
+            <div class="col s12">
+                <div class="footer-friends">
+                    <b>友情链接：</b>
+                    <a href="https://hexo.io/" target="_blank">Hexo</a>
+                    <a href="https://cassinilaw.github.io" target="_blank">CassiniLaw</a>
+                    <!-- 可按需添加更多链接 -->
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -985,6 +1026,8 @@ $(function () {
     })();
 </script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
