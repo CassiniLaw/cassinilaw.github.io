@@ -370,7 +370,10 @@
     <span class="card-title">微信</span>
     <img src="/medias/qrcode.png" alt="微信二维码" style="width:150px;">
     <span class="card-title">地图</span>
-    <iframe src="https://maps.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D西安市高新区天谷七路996号(天谷七路与云水一路十字西200米)" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>
+    <div style="position:relative;">
+      <iframe id="baidu-map" src="https://maps.baidu.com/?newmap=1&ie=utf-8&s=s%26wd%3D西安市高新区天谷七路996号(天谷七路与云水一路十字西200米)" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>
+      <button onclick="fullScreenMap()" style="position:absolute;top:10px;right:10px;z-index:10;">全屏地图</button>
+    </div>
   </div>
 </div>
 
@@ -396,6 +399,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// 地图全屏功能
+function fullScreenMap() {
+  var iframe = document.getElementById('baidu-map');
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  } else if (iframe.mozRequestFullScreen) {
+    iframe.mozRequestFullScreen();
+  } else if (iframe.webkitRequestFullscreen) {
+    iframe.webkitRequestFullscreen();
+  } else if (iframe.msRequestFullscreen) {
+    iframe.msRequestFullscreen();
+  }
+}
 </script>
 <!-- End EmailJS -->
 
