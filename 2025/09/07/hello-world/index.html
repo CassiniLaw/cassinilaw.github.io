@@ -144,11 +144,27 @@
   </li>
   <li>
     
-      <a href="/2025/09/07/hello-world/" class="waves-effect waves-light">EN</a>
-    
+    <a class="dropdown-trigger waves-effect waves-light" href="javascript:;" data-target="lang-dropdown" style="display:flex;align-items:center;">
+      <i class="fas fa-globe" style="zoom:0.7;margin-right:4px;"></i>
+      <span>中文</span>
+      <i class="fas fa-chevron-down" style="zoom:0.55;margin-left:4px;"></i>
+    </a>
+    <ul id="lang-dropdown" class="dropdown-content" style="min-width:140px;">
+      <li class="active"><a href="/2025/09/07/hello-world/">中文</a></li>
+      <li class="divider" tabindex="-1"></li>
+      <li class=""><a href="/2025/09/07/hello-world/">English</a></li>
+    </ul>
   </li>
   </li>
 </ul>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    if (M && M.Dropdown) {
+      M.Dropdown.init(elems, {alignment:'right', constrainWidth:false, coverTrigger:false});
+    }
+  });
+</script>
 
 <div id="mobile-nav" class="side-nav sidenav">
 
@@ -229,6 +245,14 @@
             </a>
         </li>
         
+        <li><div class="divider"></div></li>
+        
+        <li class="m-nav-item">
+          
+          
+            <a href="/2025/09/07/hello-world/" class="waves-effect waves-light">English</a>
+          
+        </li>
     </ul>
 </div>
 

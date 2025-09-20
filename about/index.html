@@ -136,11 +136,27 @@
   </li>
   <li>
     
-      <a href="/about/index.en.html" class="waves-effect waves-light">EN</a>
-    
+    <a class="dropdown-trigger waves-effect waves-light" href="javascript:;" data-target="lang-dropdown" style="display:flex;align-items:center;">
+      <i class="fas fa-globe" style="zoom:0.7;margin-right:4px;"></i>
+      <span>中文</span>
+      <i class="fas fa-chevron-down" style="zoom:0.55;margin-left:4px;"></i>
+    </a>
+    <ul id="lang-dropdown" class="dropdown-content" style="min-width:140px;">
+      <li class="active"><a href="/about/index.html">中文</a></li>
+      <li class="divider" tabindex="-1"></li>
+      <li class=""><a href="/about/index.en.html">English</a></li>
+    </ul>
   </li>
   </li>
 </ul>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    if (M && M.Dropdown) {
+      M.Dropdown.init(elems, {alignment:'right', constrainWidth:false, coverTrigger:false});
+    }
+  });
+</script>
 
 <div id="mobile-nav" class="side-nav sidenav">
 
@@ -221,6 +237,14 @@
             </a>
         </li>
         
+        <li><div class="divider"></div></li>
+        
+        <li class="m-nav-item">
+          
+          
+            <a href="/about/index.en.html" class="waves-effect waves-light">English</a>
+          
+        </li>
     </ul>
 </div>
 
@@ -400,48 +424,48 @@
 </div>
 
 
-	<div class="container" style="margin-bottom:40px;">
-		<div class="row">
-			<!-- Dream 卡片/多语言卡片 -->
-			<div class="col s12 m6">
-				
-				<div class="card" style="background: linear-gradient(to right, #42b983 0%, #38a1db 100%); color: #fff; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
-					<div class="card-image" style="background: url('/medias/featureimages/2.jpg') center/cover; min-height: 120px; border-radius: 4px 4px 0 0;"></div>
-					<div class="card-content">
-						<div class="title center-align" style="color:#fff;"><i class="fas fa-users"></i>&nbsp;&nbsp;核心团队</div>
-						<div class="center-align" style="color:#fff;">
-						  拥有10年以上行业经验，涵盖产品、研发、设计、运维等多领域专家。
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col s12 m6">
-				
-				<div class="card" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%); color: #fff; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
-					<div class="card-image" style="background: url('/medias/featureimages/3.jpg') center/cover; min-height: 120px; border-radius: 4px 4px 0 0;"></div>
-					<div class="card-content">
-						<div class="title center-align" style="color:#fff;"><i class="fas fa-code"></i>&nbsp;&nbsp;软件定制服务</div>
-						<div class="center-align" style="color:#fff;">软件设计、开发、定制、运维全流程一站式服务，满足企业多样化需求。</div>
-					</div>
-				</div>
-				
-			</div>
-			<!-- Recommend 卡片 -->
-			<!-- <div class="col s12 m6">
-				
-				<div class="card" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%); color: #fff; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
-					<div class="card-image" style="background: url('null/medias/featureimages/1.jpg') center/cover; min-height: 120px; border-radius: 4px 4px 0 0;"></div>
-					<div class="card-content">
-						<div class="title center-align" style="color:#fff;"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
-						
-							<div style="color:#fff;">暂无推荐文章</div>
-						
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</div>
+	
+	
+	
+		
+	
+	
+
+<div class="container feature-cards" style="margin-bottom:40px;">
+  <div class="row equal-height">
+    
+      <div class="col s12 m6">
+        <div class="card gradient-card-1">
+          <div class="card-image feature-img" style="background-image:url('/medias/featureimages/2.jpg');"></div>
+          <div class="card-content">
+            <div class="title center-align" style="color:#fff;">
+              <i class="fas fa-users"></i>&nbsp;&nbsp;
+              核心团队
+            </div>
+            <div class="center-align" style="color:#fff;">
+              拥有10年以上行业经验，涵盖产品、研发、设计、运维等多领域专家。
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col s12 m6">
+        <div class="card gradient-card-2">
+          <div class="card-image feature-img" style="background-image:url('/medias/featureimages/3.jpg');"></div>
+          <div class="card-content">
+            <div class="title center-align" style="color:#fff;">
+              <i class="fas fa-code"></i>&nbsp;&nbsp;
+              软件定制服务
+            </div>
+            <div class="center-align" style="color:#fff;">
+              软件设计、开发、定制、运维全流程一站式服务，满足企业多样化需求。
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</div>
 
 
 
